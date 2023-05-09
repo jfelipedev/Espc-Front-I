@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+.container {
+  background: #f5f5f5;
+  width: 100%;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 43px;
+  padding: 47px;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 411px;
+  height: 160px;
+  border: 1px solid #c3c3c3;
+  border-radius: 8px;
+  padding: 10px 5px;
+
+  Link{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    color: inherit;
+  }
+  .thumbnail {
+    display: flex;
+    width: 169px;
+    height: 151px;
+    border-radius: 8px;
+  }
+
+  .product-title {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 6px;
+
+    color: #2e2e2e;
+  }
+  .brand-name {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 7px;
+
+    color: #f3bd30;
+  }
+  .product-price {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #2e2e2e;
+  }
+}
