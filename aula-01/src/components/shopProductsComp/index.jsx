@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.scss";
@@ -20,8 +19,8 @@ function ShopProductsComp() {
     <div className="container">
       <div className="cards-container">
         {data.slice(0, 20).map((item) => (
-          <Link to={"/produtos/" + item.id}>
-            <div className="cards" key={item.id}>
+          <Link key={item.id} to={"/produtos/" + item.id}>
+            <div className="cards" >
               <img className="thumbnail" src={item.thumbnail} alt="" />
               <div className="card-description">
                 <h2 className="product-title">{item.title}</h2>

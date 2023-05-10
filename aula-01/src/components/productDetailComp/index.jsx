@@ -1,42 +1,71 @@
-// import { useParams, useState, useEffect } from "react-router-dom";
-// import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./styles.scss";
 
 function ProductDetailComp() {
-  // const { id } = useParams();
+  const { id } = useParams();
 
-  // const [data, setData] = useState({
-  //   title: null,
-  //   descritpion: null,
-  //   price: null,
-  //   images: null,
-  // });
+  const [products, setProducts] = useState([]);
 
-  // const fetchData = async () => {
-  //   const response = await fetch(`https://dummyjson.com/products/${id}`);
-  //   const jsonData = await response.json();
-  //   setData({
-  //     title: jsonData.products.title,
-  //     descritpion: jsonData.products.description,
-  //     price: jsonData.products.price,
-  //     images: jsonData.products.images,
-  //   });
-  // };
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const resultP = await axios.get("https://dummyjson.com/products");
+      setProducts(resultP.data.products);
+      console.log(resultP.data.products);
+    };
+    fetchData();
+  }, []);
 
-  
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get(`https://dummyjson.com/products/${id}`);
+      setData(result.data);
+      console.log(result.data);
+    };
+    fetchData();
+  }, []);
+  const relatedProducts = products.filter(product => product.id !== id).slice(0, 4);
   return (
     <div className="container">
-      <h1>teste</h1>
-      {/* {data.map((item) => (
-        <div key={item.id}>
-          <h2>{item.title}</h2>
-          <p>{item.description}</p>
-          <p>Preço: R$ {item.price}</p>
+      <div className="cards-detailed" key={data.id}>
+        <img className="thumbnail-detailed" src={data.thumbnail} alt="" />
+        <div className="card-description-detailed">
+          <h2 className="product-title-detailed">{data.title}</h2>
+          <p className="brand-name-detailed">{data.brand}</p>
+          <p className="product-price-detailed">
+            R${" "}
+            {data.price > 1000
+              ? data.price.toLocaleString("pt-BR")
+              : data.price}
+            ,00
+          </p>
+          <p className="product-description-detailed">{data.description}</p>
         </div>
-      ))} */}
+      </div>
+        <div className="more-products-section-title"><h1 className="product-title-detailed">Veja outros produtos</h1></div>
+      <div className="more-products">
+        {relatedProducts.map((item) => (
+          <Link key={item.id} to={"/produtos/" + item.id}>
+            <div className="cards">
+              <img className="thumbnail" src={item.thumbnail} alt="" />
+              <div className="card-description">
+                <h2 className="product-title">{item.title}</h2>
+                <p className="brand-name">{item.brand}</p>
+                <p className="product-price">
+                  R${" "}
+                  {item.price > 1000
+                    ? item.price.toLocaleString("pt-BR")
+                    : item.price}
+                  ,00
+                </p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
