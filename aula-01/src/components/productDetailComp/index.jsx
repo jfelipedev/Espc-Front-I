@@ -27,9 +27,12 @@ function ProductDetailComp() {
     };
     fetchData();
   }, []);
-  const relatedProducts = products.filter(product => product.id !== id).slice(0, 4);
+
+  const relatedProducts = products.filter(product => product.id !== id).slice(Math.floor(Math.random() * 7) + 6
+  , Math.floor(Math.random() * 8) + 13).slice(0,4);
+
   return (
-    <div className="container">
+    <div className="container-detailed">
       <div className="cards-detailed" key={data.id}>
         <img className="thumbnail-detailed" src={data.thumbnail} alt="" />
         <div className="card-description-detailed">
