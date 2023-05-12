@@ -10,6 +10,7 @@ import App from "./App.jsx";
 import ProductsDetailed from "./routes/productDatail.jsx";
 import Home from "./routes/home.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
+import Login from "./routes/login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/produtos/:id",
         element: <ProductsDetailed />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
