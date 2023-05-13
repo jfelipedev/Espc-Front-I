@@ -1,16 +1,57 @@
+import { useState } from "react";
+import HeaderComp from "../components/header";
+import { useNavigate } from "react-router-dom";
+
 function Login() {
+  const navigate = useNavigate()
+  const [userData, setUserData] = useState({ email: "", password: "" });
+
+  function entrar() {
+    alert(JSON.stringify(userData));
+    navigate("/")
+  }
+
   return (
-    <div>
+    <>
+      <HeaderComp />
+      <div
+        style={{
+          backgroundColor: "#512DA8",
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+          color: "white",
+        }}
+      >
         <h2>Login</h2>
         <p>Insira seus dados para entrar no sistema</p>
         <form action="">
-            <input type="email"/> <br />
-            <input type="password"/><br />
-            <button>Entrar</button>
+          <input
+            value={userData.email}
+            onChange={(e) => setUserData({...userData, email:e.target.value})}
+            style={{ marginBottom: "20px" }}
+            type="email"
+            placeholder="digeite seu e-mail"
+          />{" "}
+          <br />
+          <input
+            value={userData.password}
+            onChange={(e) => setUserData({...userData, password:e.target.value})}
+            style={{ marginBottom: "20px" }}
+            type="password"
+            placeholder="digeite sua senha"
+          />
+          <br />
+          <center>
+            <button onClick={entrar}>Entrar</button>
+          </center>
         </form>
-
-    </div>
-  )
+      </div>
+    </>
+  );
 }
 
-export default Login
+export default Login;
