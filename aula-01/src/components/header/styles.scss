@@ -1,16 +1,28 @@
-  @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-.header{
-    height: 98px;
-    width: 100%;
-    background: #512DA8;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 40px;
-    line-height: 45.96px;
-    color: #fff;
-    
+.header {
+  height: 98px;
+  width: 100%;
+  background: #512da8;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 40px;
+  line-height: 45.96px;
+  color: #fff;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.userGreeting {
+  display: flex;
+  position: relative;
+  right: -400px;
+}
+h3 {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
 }

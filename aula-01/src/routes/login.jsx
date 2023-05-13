@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import HeaderComp from "../components/header";
 import { useNavigate } from "react-router-dom";
+import { MyContext } from "../contexts/MyContext";
 
 function Login() {
-  const navigate = useNavigate()
+  const { userLoginFunc } = useContext( MyContext );
+ 
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({ email: "", password: "" });
 
   function entrar() {
-    alert(JSON.stringify(userData));
-    navigate("/")
+    userLoginFunc(userData.email, userData.password);
+    navigate("/");
   }
 
   return (
@@ -31,7 +34,9 @@ function Login() {
         <form action="">
           <input
             value={userData.email}
-            onChange={(e) => setUserData({...userData, email:e.target.value})}
+            onChange={(e) =>
+              setUserData({ ...userData, email: e.target.value })
+            }
             style={{ marginBottom: "20px" }}
             type="email"
             placeholder="digeite seu e-mail"
@@ -39,7 +44,9 @@ function Login() {
           <br />
           <input
             value={userData.password}
-            onChange={(e) => setUserData({...userData, password:e.target.value})}
+            onChange={(e) =>
+              setUserData({ ...userData, password: e.target.value })
+            }
             style={{ marginBottom: "20px" }}
             type="password"
             placeholder="digeite sua senha"
