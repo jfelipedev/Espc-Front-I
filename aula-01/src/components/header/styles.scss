@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-.header {
+.header-home{
   height: 98px;
   width: 100%;
   background: #512da8;
@@ -12,17 +12,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .userGreeting {
   display: flex;
   position: relative;
   right: -400px;
+  align-items: center;
 }
 h3 {
-  font-family: "Ubuntu";
+  font-family: 'Ubuntu';
   font-style: normal;
   font-weight: 400;
   font-size: 28px;
   line-height: 32px;
+  
+  color: #FFFFFF;
+  margin-right: 15px;
+}
+.deslogar-button {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #ffffff;
+
+  width: 97px;
+  height: 43px;
+  background: #f3bd30;
+  border-radius: 20px;
+  border: 0;
 }

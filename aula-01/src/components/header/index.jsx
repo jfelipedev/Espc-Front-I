@@ -7,7 +7,7 @@ function HeaderComp() {
   const { userEmail, logout } = useContext(MyContext);
 
   return (
-    <nav className="header">
+    <nav className="header-home">
       <div className="page-title">
       <Link to="/">
         <h1>Shop Products</h1>
@@ -15,7 +15,7 @@ function HeaderComp() {
       </div>
       <div className="userGreeting">
         <h3>{userEmail}</h3>
-      <button onClick={logout}>Deslogar</button>
+      <button className="deslogar-button" onClick={logout}>Sair</button>
       </div>
     </nav>
   );
