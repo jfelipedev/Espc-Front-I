@@ -5,5 +5,5 @@ export async function getTodos(){
 }
 
 export async function addTodo(todo){
-    return (await api.post("/todo", todo)).data
+    return (await api.post("/todo", todo))
 }

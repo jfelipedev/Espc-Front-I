@@ -1,5 +1,6 @@
 import "./styles.scss";
 
+// eslint-disable-next-line react/prop-types
 export default function Cards({ title, category, description, date }) {
   return (
       <div className="cards">
