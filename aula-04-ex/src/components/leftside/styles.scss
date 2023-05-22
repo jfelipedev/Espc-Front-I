@@ -51,4 +51,11 @@ h3 {
   border: 0;
   background: #e84118;
   border-radius: 8px;
+
+  cursor: pointer;
+
+  color: white;
+}
+.save-button:hover {
+  background: #ff4313;
 }

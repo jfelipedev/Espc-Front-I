@@ -1,7 +1,6 @@
-import { useMutation } from "@tanstack/react-query";
 import "./styles.scss";
-import { addTodo } from "../../requests/todos";
 import { useState } from "react";
+import useTodo from "../../hooks/useTodo";
 
 export default function LeftSide() {
   const [title, setTitle] = useState("");
@@ -9,7 +8,7 @@ export default function LeftSide() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
-  const { mutate } = useMutation(addTodo);
+  const { addTodo } = useTodo();
 
   return (
     <div className="container-leftside">
@@ -54,7 +53,7 @@ export default function LeftSide() {
         <center>
           <button
             className="save-button"
-            onClick={() => mutate({ title, category, date, description })}
+            onClick={() => addTodo({ title, category, date, description })}
           >
             Salvar
           </button>
