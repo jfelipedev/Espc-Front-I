@@ -35,12 +35,6 @@ export default function App() {
     closeModal();
   }
 
-  // function formatDate(date) {
-  //   const dateFormated = todos.date.split("T")[0];
-  //   setDate(dateFormated);
-  //   return new Date(date).toLocaleDateString("pt-BR");
-  // }
-
   return (
     <div className="main-container">
       <LeftSide />
